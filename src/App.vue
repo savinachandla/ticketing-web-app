@@ -1,7 +1,9 @@
 <template>
-  <Hero />
+  <DefaultLayout>
+    <router-view />
+  </DefaultLayout>
 </template>
 
 <script setup>
-import Hero from './Hero.vue'
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
 </script>
