@@ -6,12 +6,8 @@
       </v-col>
     </v-row>
 
-    <v-row v-if="tickets.length">
-      <v-col
-        v-for="ticket in tickets"
-        :key="ticket.id"
-        cols="12"
-      >
+    <v-row v-if="paginatedTickets.length">
+      <v-col v-for="ticket in paginatedTickets" :key="ticket.id" cols="12">
         <TicketCard :ticket="ticket" :isAdmin="false" />
       </v-col>
     </v-row>
@@ -21,13 +17,34 @@
         <p class="text-body-1">No tickets available.</p>
       </v-col>
     </v-row>
+
+    <!-- <v-pagination v-model="currentPage" rounded="circle" color="primary" :length="totalPages"></v-pagination> -->
+
+    <!-- Pagination Component -->
+    <TicketsPagination
+      v-if="tickets.length > itemsPerPage"
+      :totalPages="totalPages"
+      v-model:currentPage="currentPage"
+    />
   </v-container>
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue';
 import { useTicketStore } from '@/stores/ticketStore';
 import TicketCard from '@/components/TicketCard.vue';
+import TicketsPagination from '@/components/TicketsPagination.vue';
 
 const ticketStore = useTicketStore();
 const tickets = ticketStore.tickets;
+
+//Pagination
+const itemsPerPage = 10;
+const currentPage = ref(1);
+const totalPages = computed(() => Math.ceil(tickets.length / itemsPerPage) || 1);
+// Compute tickets to display based on pagination
+const paginatedTickets = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage;
+  return tickets.slice(startIndex, startIndex + itemsPerPage);
+});
 </script>

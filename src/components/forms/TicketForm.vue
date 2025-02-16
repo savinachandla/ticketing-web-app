@@ -2,7 +2,7 @@
   <v-form ref="form" v-model="valid">
     <v-text-field
       v-model="ticket.name"
-      :counter="12"
+      :counter="20"
       :rules="nameRules"
       label="Ticket Name"
       variant="outlined"
@@ -12,6 +12,7 @@
 
     <v-textarea
       v-model="ticket.description"
+      counter="100"
       label="Description"
       variant="outlined"
       :rules="descriptionRules"
@@ -32,6 +33,7 @@
       label="Number of Tickets Available"
       type="number"
       min="1"
+      max="1000"
       :rules="countRules"
       required
       class="mt-required"
@@ -44,6 +46,7 @@
       variant="outlined"
       type="number"
       min="1"
+      max="500"
       :rules="priceRules"
       required
       class="mt-required"
@@ -82,14 +85,23 @@ const ticket = ref({
 
 const nameRules = [
   (v: string) => !!v || "Ticket name is required",
-  (v: string) => (v && v.length >= 3 && v.length <= 12) || "Ticket name must be 3-12 characters long"
+  (v: string) => (v && v.length >= 3 && v.length <= 20) || "Ticket name must be 3-20 characters long"
 ];
 
-const descriptionRules = [(v: string) => !!v || "Description is required"];
+const descriptionRules = [
+  (v: string) => !!v || "Description is required",
+  (v: string) => (v.length <= 100) || "Description cannot exceed 100 characters"
+];
 
-const countRules = [(v: number) => v > 0 || "Number of tickets must be greater than 0"];
+const countRules = [
+  (v: number) => v > 0 || "Number of tickets must be greater than 0",
+  (v: number) => v <= 1000 || "Cannot exceed 1000 tickets"
+];
 
-const priceRules = [(v: number) => v > 0 || "Price must be greater than 0"];
+const priceRules = [
+  (v: number) => v > 0 || "Price must be greater than 0",
+  (v: number) => v <= 500 || "Price cannot exceed $500"
+];
 
 const validate = async () => {
   if (form.value) {

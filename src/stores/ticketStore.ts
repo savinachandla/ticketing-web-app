@@ -8,7 +8,7 @@ export const useTicketStore = defineStore('ticketStore', () => {
 
   //Add new ticket
   const addTicket = (ticket: Ticket) => {
-    tickets.value.push(ticket);
+    tickets.value.unshift(ticket); 
   };
 
   // Remove a ticket by its ID

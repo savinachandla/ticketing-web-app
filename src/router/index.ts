@@ -8,7 +8,7 @@ const routes = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/admin', name: 'Admin', component: AdminView},
   { path: '/cart', name: 'Cart', component: CartView },
-  { path: "/:catchAll(.*)", name: 'PageNotFound', component: PageNotFound }
+  { path: "/:catchAll(.*)", name: 'PageNotFound', component: PageNotFound } //for all the URLs that don't exist show page not found
 ];
 
 const router = createRouter({

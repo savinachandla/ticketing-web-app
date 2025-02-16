@@ -20,18 +20,6 @@
             </td>
             <td>${{ item.price }}</td>
             <td>{{ item.quantity }}</td>
-            <!-- <td>
-              <v-text-field 
-                variant="outlined" 
-                v-model="item.quantity" 
-                type="number" 
-                min="1" 
-                :max="item.count" 
-                class="mt-4" 
-                density="compact" 
-                @blur="updateQuantity(item)">
-              </v-text-field>
-            </td> -->
             <td>${{ (item.price * item.quantity).toFixed(2) }}</td>
             <td>
             <v-tooltip text="Remove a ticket from cart" location="top">
@@ -59,25 +47,16 @@
   
   <script setup lang="ts">
   import { useCartStore } from '@/stores/cartStore';
+  import { useMessageStore } from '@/stores/messageStore';
   
   const cartStore = useCartStore();
   const cart = cartStore.cart;
+  const messageStore = useMessageStore();
   
   const removeFromCart = (ticket: any) => {
     cartStore.removeFromCart(ticket);
+    messageStore.setMessage('Ticket removed from cart', 'success');
   };
 
-//   const updateQuantity = (item: any) => {
-//     if (item.quantity < 1) {
-//       item.quantity = 1; // Prevent going below 1
-//     } else if (item.quantity > item.count) {
-//       item.quantity = item.count; // Prevent exceeding available count
-//     }
-//     item.count = item.count-item.quantity;
-//     console.log('item', item)
-//     // If the quantity is changed, update the store accordingly
-//     cartStore.removeFromCart(item); 
-//     cartStore.addToCart(item);
-//   };
   </script>
   
