@@ -42,7 +42,7 @@ A Vue 3 + TypeScript + Vite-based ticket-selling web application with an admin p
 ---
 
 ## 🌍 Live Preview
-  To preview the app live in action, visit: <span style="font-size: 14px; font-weight: normal;">[https://ticketing-app-87043.web.app/](https://ticketing-app-87043.web.app/)</span>
+  To preview the app live in action, please visit: <span style="font-size: 14px; font-weight: normal;">[https://ticketing-app-87043.web.app/](https://ticketing-app-87043.web.app/)</span>
 
 ---
 
