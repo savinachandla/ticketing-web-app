@@ -52,7 +52,7 @@ A Vue 3 + TypeScript + Vite-based ticket-selling web application with an admin p
 │── 📁 src
 │   ├── 📁 components  # Reusable Vue components
 │   ├── 📁 views       # App views (Home, Admin, Cart)
-│   ├── 📁 store       # Pinia state management
+│   ├── 📁 stores      # Pinia state management
 │   ├── 📁 router      # Vue Router setup
 │   ├── 📁 assets      # Static assets
 │   ├── 📄 App.vue     # Main Vue component
