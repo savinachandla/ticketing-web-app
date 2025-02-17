@@ -17,9 +17,7 @@
         <p class="text-body-1">No tickets available.</p>
       </v-col>
     </v-row>
-
-    <!-- <v-pagination v-model="currentPage" rounded="circle" color="primary" :length="totalPages"></v-pagination> -->
-
+    
     <!-- Pagination Component -->
     <TicketsPagination
       v-if="tickets.length > itemsPerPage"

@@ -1,64 +1,65 @@
-# Getting Started
+# Ticketing Web App
 
-Download the project, please do not fork the project.
+A Vue 3 + TypeScript + Vite-based ticket-selling web application with an admin page, a home page, and a shopping cart. The application uses **Vuetify 3** for UI components and **Pinia** for state management.
 
-Make sure you have latest node.js installed on your machine.
+## 🚀 Features
+- Home page displaying available tickets
+- Shopping cart functionality
+- Admin page for managing ticket creation functionality
+- State management using Pinia
+- Fully responsive design with Vuetify 3
 
-Run the following commands in the project directory:
+## 🛠 Tech Stack
+- **Frontend:** Vue 3, TypeScript, Vite
+- **State Management:** Pinia
+- **UI Framework:** Vuetify 3
 
-```npm install```
+---
 
-```npm run dev```
+## 📦 Installation & Setup
 
-# Vue 3 + TypeScript + Vite
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/savinachandla/ticketing-web-app.git
+   cd ticketing-web-app
+   ```
 
-Develop a Vue.js web application that simulates website for selling tickets. The application will have three main pages: an admin page for creating tickets and a home page to display them. The challenge will assess your proficiency in Vue.js, state management, component design, and Typescript.
+2. **Install dependencies**
+   ```sh
+   npm install
+   ```
 
-The application should be responsive and function properly on modern web browsers.
+3. **Run the development server**
+   ```sh
+   npm run dev
+   ```
 
-Tailwind CSS is included in the project. You may use it to style your application or use CSS framework or UI library of your choice.
+4. **Build for production**
+   ```sh
+   npm run build
+   ```
 
+---
 
-# Core Pages:
+## 🌍Live Preview
+To preview the app live in action, visit: https://ticketing-app-87043.web.app/
+---
 
-## Admin Page (/admin):
+## 📂 Project Structure
+```
+📁 ticketing-web-app
+│── 📁 src
+│   ├── 📁 components  # Reusable Vue components
+│   ├── 📁 views       # App views (Home, Admin, Cart)
+│   ├── 📁 store       # Pinia state management
+│   ├── 📁 router      # Vue Router setup
+│   ├── 📁 assets      # Static assets
+│   ├── 📄 App.vue     # Main Vue component
+│   ├── 📄 main.ts     # Application entry point
+│
+│── 📄 package.json    # Project dependencies and scripts
+│── 📄 vite.config.ts  # Vite configuration
+│── 📄 tsconfig.json   # TypeScript configuration
+```
 
-This is the page where tickets are created.
-
-Create an interface with input fields to add new event ticket items. Fields should include: Ticket Name, Description, IsVIP (checkbox), Count (number of tickets available), and Price.
-Implement a submission form that adds the ticket data to a centralized store upon submission.
-Show a list of all created tickets. Each ticket should have a button to delete the ticket from the store.
-
-## Index Page (Home Page):
-
-This is the page where tickets are displayed and can be added to shopping cart.
-
-Display a list of all created tickets. 
-VIP tickets should be visually distinguishable from regular tickets (e.g., different color, badge, etc.).
-Add a button to each ticket to add the ticket to a shopping cart.
-
-## Shopping Cart (/cart):
-Create a shopping cart that displays all tickets that have been added to the cart.
-
-Note: The shopping cart does not need to persist on page reload. Shopping cart doesn't need to include checkout functionality.
-
-
-# Functionality:
-
-State Management: Use Vue's reactivity system, Pinia, Vuex, or the Composition API for managing the application state.
-Data Handling: Implement mock data handling. Data does not need to persist on page reload unless you choose to implement local storage or a backend service.
-Routing: Use Vue Router to navigate between the Admin and Index pages.
-
-
-# Code Quality and Standards:
-Write clean, well-structured, and commented code.
-Follow best practices for Vue.js and Typescript.
-
-
-# Bonus Points:
-Testing (Optional, but recommended): Write basic unit tests for key components.
-
-
-# Submission:
-
-Please submit your code in a public GitHub repository and send us the link. Include a README.md file with instructions on how to run the application.
+---
