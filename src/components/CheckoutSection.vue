@@ -22,15 +22,15 @@
 
       <v-divider class="mb-4"></v-divider>
 
-      <v-btn prepend-icon="mdi-credit-card-outline" block color="primary">
+      <v-btn prepend-icon="mdi-credit-card-outline" block color="primary" @click="setMessage">
 				Checkout
 			</v-btn>
 
-			<v-btn prepend-icon="mdi-wallet-outline" block color="yellow" class="mt-4">
+			<v-btn prepend-icon="mdi-wallet-outline" block color="yellow" class="mt-4" @click="setMessage">
 				Pay with PayPal
 			</v-btn>
 
-			<v-btn prepend-icon="mdi-contactless-payment" block color="error" class="mt-4">
+			<v-btn prepend-icon="mdi-contactless-payment" block color="error" class="mt-4"  @click="setMessage">
 				Amazon Pay
 			</v-btn>
 
@@ -40,8 +40,14 @@
   <script setup>
   import { computed } from 'vue';
   import { useCartStore } from '@/stores/cartStore';
-  
+  import { useMessageStore } from '@/stores/messageStore';
+
   const cartStore = useCartStore();
+  const messageStore = useMessageStore();
   const totalPrice = computed(() => cartStore.totalPrice)
+
+  const setMessage = () => {
+    messageStore.setMessage('Coming soon!', 'warning')
+  }
   </script>
   

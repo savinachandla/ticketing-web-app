@@ -2,7 +2,10 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="text-h5 font-weight-bold mb-4">Available Tickets</h1>
+        <h2 class="text-xl font-semibold">
+          Available Tickets
+          <span class="ml-2 px-3 py-1 bg-primary text-subtitle-1 text-white rounded-lg">{{ tickets.length }}</span>
+        </h2>
       </v-col>
     </v-row>
 

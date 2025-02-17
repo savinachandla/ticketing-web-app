@@ -1,7 +1,10 @@
 <template>
-  <div class="p-6">
+  <v-container>
     <div class="d-flex justify-space-between align-center mb-4">
-      <h2 class="text-xl font-semibold">Existing Tickets</h2>
+      <h2 class="text-xl font-semibold">
+        Existing Tickets 
+        <span class="ml-2 px-3 py-1 bg-primary text-subtitle-1 text-white rounded-lg">{{ tickets.length }}</span>
+      </h2>
       <v-btn @click="openTicketForm" color="primary">
         Create Ticket
       </v-btn>
@@ -31,7 +34,7 @@
       :totalPages="totalPages"
       v-model:currentPage="currentPage"
     />
-  </div>
+  </v-container>
 </template>
 
 <script setup lang="ts">

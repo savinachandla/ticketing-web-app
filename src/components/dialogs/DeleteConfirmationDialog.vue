@@ -2,7 +2,10 @@
     <v-dialog v-model="dialog" max-width="400px">
       <v-card class="pa-3">
         <v-card-title class="text-h6">Confirm Deletion</v-card-title>
-        <v-card-text>Are you sure you want to delete this ticket?</v-card-text>
+        <v-card-text>
+          <p class="text-subtitle-1">Are you sure you want to delete this ticket?</p>
+          <p class="text-subtitle-2 text-grey">It will also remove the ticket from cart</p>
+        </v-card-text>
         <v-card-actions class="justify-end">
           <v-btn color="grey" @click="closeDialog">Cancel</v-btn>
           <v-btn color="red-darken-2" @click="confirmDelete">Delete</v-btn>

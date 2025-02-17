@@ -1,6 +1,6 @@
 <template>
     <v-card class="pa-4">
-      <v-card-title class="text-h5 font-weight-bold">Shopping Cart</v-card-title>
+      <v-card-title class="text-h6 font-weight-bold">Shopping Cart</v-card-title>
       <v-divider class="mb-4"></v-divider>
       <v-table v-if="cart.length > 0" dense>
         <thead>
@@ -22,7 +22,7 @@
             <td>{{ item.quantity }}</td>
             <td>${{ (item.price * item.quantity).toFixed(2) }}</td>
             <td>
-            <v-tooltip text="Remove a ticket from cart" location="top">
+            <v-tooltip text="Remove the ticket from cart" location="top">
 							<template v-slot:activator="{ props }">
 								<v-btn 
 										density="comfortable" 
@@ -48,12 +48,13 @@
   <script setup lang="ts">
   import { useCartStore } from '@/stores/cartStore';
   import { useMessageStore } from '@/stores/messageStore';
-  
+  import { Ticket } from '@/types/ticket'; 
+
   const cartStore = useCartStore();
   const cart = cartStore.cart;
   const messageStore = useMessageStore();
   
-  const removeFromCart = (ticket: any) => {
+  const removeFromCart = (ticket: Ticket) => {
     cartStore.removeFromCart(ticket);
     messageStore.setMessage('Ticket removed from cart', 'success');
   };

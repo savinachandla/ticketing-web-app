@@ -71,7 +71,7 @@ const { ticket, isAdmin } = defineProps<{
   isAdmin: boolean;
 }>();
 
-const addToCart = (ticket: any) => {
+const addToCart = (ticket: Ticket) => {
   if (ticket.count > 0) {
     ticket.count -= 1;
     cartStore.addToCart(ticket);
@@ -85,7 +85,9 @@ const openDeleteDialog = () => {
 };
 
 const deleteTicket = () => {
-  ticketStore.removeTicket(ticket);
+  ticketStore.removeTicket(ticket)
+  //If the ticket exists in cart remove it from there also
+  cartStore.removeFromCart(ticket)
   messageStore.setMessage('Ticket deleted successfully', 'error');
 };
 </script>

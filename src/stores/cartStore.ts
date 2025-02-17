@@ -20,13 +20,8 @@ export const useCartStore = defineStore('cartStore', () => {
   // Remove ticket from the cart
   const removeFromCart = (ticket: Ticket) => {
     const existingTicket = cart.value.find(item => item.id === ticket.id);
-    if (existingTicket) {
-      if (existingTicket.quantity > 1) {
-        existingTicket.quantity -= 1;
-      } else {
-        cart.value.splice(cart.value.indexOf(existingTicket), 1);
-      }
-    }
+    if (existingTicket)
+      cart.value.splice(cart.value.indexOf(existingTicket), 1);
   };
 
   // Calculate total price
